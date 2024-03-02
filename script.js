@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     LoggedUser.length === 0 &&
     currentPage !== "login.html" &&
     currentPage !== "register.html" &&
-    currentPage !== "User.html"
+    currentPage !== "index.html"
   ) {
     window.location.href = "login.html";
   } else {
@@ -300,7 +300,7 @@ function login() {
               accountType: "User",
             })
           );
-          window.location.href = "User.html";
+          window.location.href = "index.html";
           flag = true;
         }
       }
@@ -354,7 +354,7 @@ function register() {
 function logout() {
   sessionStorage.clear();
 
-  window.location.href = "User.html";
+  window.location.href = "index.html";
   alert("Successfully Logged Out");
 }
 function addToCart(id) {

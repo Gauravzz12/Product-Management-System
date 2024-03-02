@@ -132,7 +132,7 @@
     <div id="ProductsList">
       <h2>Cart</h2>
       <div id="ActionButtons">
-        <button id="Close" onclick="window.location.href='User.html'">
+        <button id="Close" onclick="window.location.href='index.html'">
           Close
         </button>
       </div>
@@ -187,7 +187,7 @@
           alert(item.Productname + " Was Removed");
           existingCart.Products = data.filter((x) => x.pid !== item.pid);
           if (Object.keys(cart).length) {
-            window.location.href = "User.html";
+            window.location.href = "index.html";
           }
           localStorage.setItem("Cart", JSON.stringify(cart));
         }
@@ -281,7 +281,7 @@
             updateFinalAmount();
 
             if (Object.keys(existingCart.Products).length === 0) {
-              window.location.href = "User.html";
+              window.location.href = "index.html";
             }
           });
           dlt.addEventListener("click", function () {
@@ -289,7 +289,7 @@
             localStorage.setItem("Cart", JSON.stringify(cart));
             showCart();
             if (Object.keys(existingCart.Products).length === 0) {
-              window.location.href = "User.html";
+              window.location.href = "index.html";
             }
           });
           finalAmount += total;
