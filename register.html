@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        #register-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #accounts {
+            font-size: x-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input#email, input#password,input#uname {
+            width: calc(100% - 10px);
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #555;
+            background-color: #eee;
+        }
+
+        input[type="radio"] {
+            margin: 0 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="register-container"> 
+        <button onclick="window.location.href='User.html'">HOME</button>
+
+        <h1>Create an Account</h1>
+        <form id="registerform"> 
+            <div id="accounts">
+                <input type="radio" class="Account" name="Account" value="Admin" required> Admin
+                <input type="radio" class="Account" name="Account" value="User" required> User
+            </div>
+            <input type="text" id="uname" placeholder="Enter your UserName" required><br>
+            <input type="email" id="email" placeholder="Enter your Email" required><br>
+            <input type="password" id="password" placeholder="Enter your Password" required><br>
+            <button type="submit" onclick="register()">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

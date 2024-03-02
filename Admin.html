@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        div {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            background-color: #007acc;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        #ProductsList {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 150px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #000000;
+        }
+
+        #ActionButtons {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #333;
+            table-layout: fixed;
+            content: attr(data-th)": ";
+
+        }
+
+        th, td {
+            border: 1px solid #555;
+            text-align: left;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007acc;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        button.edit, button.delete {
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-right: 5px;
+        }
+
+        button.edit:hover {
+            background-color: #2ecc71;
+        }
+
+        button.delete:hover {
+            background-color: #e74c3c;
+        }
+
+        #ShowNo {
+            display: none;
+        }
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Serial Number"; }
+	td:nth-of-type(2):before { content: "Product"; }
+	td:nth-of-type(3):before { content: "Product Name"; }
+	td:nth-of-type(4):before { content: "Product Price"; }
+	td:nth-of-type(5):before { content: "Product Stock"; }
+    td:nth-of-type(6):before { content: "Product Description"; }
+	td:nth-of-type(7):before { content: "Actions"; }
+
+	
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Welcome Admin : <span id="AdminName"></span></h1> <span>
+        <button id="logOut" onclick="logout()">Log Out</button><br/><br/>
+    </div>
+
+    <div id="ProductsList">
+        <h1>Product List</h1>
+        <label for="Name">Product Name :</label>
+        <input type="text" id="Name" name="Name" required>
+        <label for="Price">Product Price :</label>
+        <input type="number" id="Price" name="Price" required>
+        <label for="Quantity">Product Quantity :</label>
+        <input type="number" id="Quantity" name="Quantity" required>
+        <label for="Description">Product Description :</label>
+        <input type="text" id="Description" name="Description" required>
+        <label for="Image">Image URL :</label>
+        <input type="text" id="Image" name="Image" >
+        <div id="ActionButtons">
+            <button onclick="addData()">Add Data</button>
+        </div>
+
+        <table id="ProductsTable">
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Product</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Stock</th>
+                    <th>Product Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="ProductsBody"></tbody>
+        </table>
+        <!-- <h1 id="Empty">No Products Found!</h1> -->
+    </div>
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUpdateModal()">&times;</span>
+            <h2>Update Product</h2>
+            <form id="updateForm">
+                <label for="updatedName">Product Name:</label>
+                <input type="text" id="updatedName" name="updatedName" required>
+    
+                <label for="updatedPrice">Product Price:</label>
+                <input type="number" id="updatedPrice" name="updatedPrice" required>
+    
+                <label for="updatedQuantity">Product Quantity:</label>
+                <input type="number" id="updatedQuantity" name="updatedQuantity" required>
+    
+                <label for="updatedDescription">Product Description:</label>
+                <input type="text" id="updatedDescription" name="updatedDescription" required>
+
+                <label for="updatedImage"> Image URL:</label>
+                <input type="text" id="updatedImage" name="updatedImage" >
+    
+                <button type="button" id="updateButton">Update</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const adminName=document.getElementById("AdminName");
+          adminName.innerText=LoggedUser.uname;
+          const table=document.getElementById("ProductsTable");
+            const empty=document.getElementById("Empty");
+            const tablestyle=table.style.display;
+        //   if(Object.keys(data).length==0){
+        //     table.style.display="none";
+        //     empty.style.display="block";
+        //   }
+        //   else{
+        //     table.style.display=tablestyle;
+        //     empty.style.display="none";
+        //   }
+    </script>
+</body>
+</html>

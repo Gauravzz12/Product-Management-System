@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        #login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #555;
+            background-color: #eee;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button.register {
+            background-color: #2ecc71;
+            margin-top: 15px;
+        }
+
+        button.register:hover {
+            background-color: #27ae60;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container"> 
+        <button onclick="window.location.href='User.html'">HOME</button>
+
+        <h1>Welcome Back!</h1>
+        <p>Login to your account to continue.</p>
+
+        <form id="loginform"> 
+            <input type="text" id="email" placeholder="Enter your Email Or Username">
+            <input type="password" id="password" placeholder="Enter your Password">
+            <button type="submit" onclick="login()">Login</button>
+        </form>
+
+        <button class="register" onclick="window.location.href='register.html'">Create an Account</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
