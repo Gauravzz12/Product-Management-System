@@ -1,7 +1,3 @@
-Certainly! Below is a template for a GitHub README file for a Product Management System:
-
----
-
 # Product Management System
 
 Welcome to the Product Management System, a web application designed to streamline product management. This system caters to two main user roles: Admin and User.
