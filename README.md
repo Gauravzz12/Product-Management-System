@@ -13,6 +13,9 @@ Welcome to the Product Management System, a web application designed to streamli
 - **View Products:** Users can browse the list of available products.
 - **Add to Cart:** Users have the option to add products to their shopping cart.
 
+### Default Items:
+- The system comes with 10 default items that are always displayed on the site.
+
 ## Live Link:
 
 Visit the live website: [Product Management System](https://gauravzz12.github.io/Product-Management-System/)
