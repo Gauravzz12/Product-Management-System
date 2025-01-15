@@ -10,7 +10,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 1,
       Productname: "Apple",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 100,
       ProductQuantity: 10,
       ProductDescription: "Fresh red apples",
@@ -19,7 +19,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 2,
       Productname: "Banana",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1574226516831-e1dff420e3f9?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 50,
       ProductQuantity: 20,
       ProductDescription: "Ripe yellow bananas",
@@ -28,7 +28,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 3,
       Productname: "Orange",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 80,
       ProductQuantity: 30,
       ProductDescription: "Juicy oranges",
@@ -37,7 +37,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 4,
       Productname: "Grapes",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 120,
       ProductQuantity: 40,
       ProductDescription: "Fresh green grapes",
@@ -46,7 +46,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 5,
       Productname: "Mango",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 150,
       ProductQuantity: 50,
       ProductDescription: "Sweet mangoes",
@@ -55,7 +55,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 6,
       Productname: "Watermelon",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 200,
       ProductQuantity: 60,
       ProductDescription: "Refreshing watermelon",
@@ -64,7 +64,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 7,
       Productname: "Pineapple",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 180,
       ProductQuantity: 70,
       ProductDescription: "Delicious pineapple",
@@ -73,7 +73,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 8,
       Productname: "Strawberry",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 250,
       ProductQuantity: 80,
       ProductDescription: "Fresh strawberries",
@@ -82,7 +82,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 9,
       Productname: "Blueberry",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 300,
       ProductQuantity: 90,
       ProductDescription: "Fresh blueberries",
@@ -91,7 +91,7 @@ if (data.length === 0) {
       pid: generateProductId(),
       serialNumber: 10,
       Productname: "Kiwi",
-      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       ProductPrice: 220,
       ProductQuantity: 100,
       ProductDescription: "Fresh kiwi",
@@ -526,4 +526,15 @@ function displayCart() {
   }
 
   window.location.href = "cart.html";
+}
+
+function guestLogin() {
+  sessionStorage.setItem(
+    "currentUser",
+    JSON.stringify({
+      uname: "Guest",
+      accountType: "Guest",
+    })
+  );
+  window.location.href = "index.html";
 }
