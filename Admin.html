@@ -270,19 +270,20 @@ only screen and (max-width: 760px),
     </div>
     <script src="script.js"></script>
     <script>
-        const adminName=document.getElementById("AdminName");
-          adminName.innerText=LoggedUser.uname;
-          const table=document.getElementById("ProductsTable");
-            const empty=document.getElementById("Empty");
-            const tablestyle=table.style.display;
-        //   if(Object.keys(data).length==0){
-        //     table.style.display="none";
-        //     empty.style.display="block";
-        //   }
-        //   else{
-        //     table.style.display=tablestyle;
-        //     empty.style.display="none";
-        //   }
+        document.addEventListener("DOMContentLoaded", function () {
+            const adminName = document.getElementById("AdminName");
+            adminName.innerText = LoggedUser.uname;
+            const table = document.getElementById("ProductsTable");
+            const empty = document.getElementById("Empty");
+            const tablestyle = table.style.display;
+            if (Object.keys(data).length == 0) {
+                table.style.display = "none";
+                empty.style.display = "block";
+            } else {
+                table.style.display = tablestyle;
+                empty.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
