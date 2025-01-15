@@ -155,149 +155,151 @@
     </div>
     <script src="script.js"></script>
     <script>
-      let finalAmount = 0;
+      document.addEventListener("DOMContentLoaded", function () {
+        let finalAmount = 0;
 
-      const logoutButton = document.getElementById("logOut");
-      const navLinks = document.querySelectorAll("nav a");
-      const final = document.getElementById("ActionButtons");
-      const p = document.createElement("p");
-      final.appendChild(p);
+        const logoutButton = document.getElementById("logOut");
+        const navLinks = document.querySelectorAll("nav a");
+        const final = document.getElementById("ActionButtons");
+        const p = document.createElement("p");
+        final.appendChild(p);
 
-      if (Object.keys(LoggedUser).length > 0) {
-        logoutButton.style.display = "block";
-        navLinks.forEach((link) => (link.style.display = "none"));
-      } else {
-        logoutButton.style.display = "none";
-        navLinks.forEach((link) => (link.style.display = "block"));
-      }
-
-      function updateFinalAmount() {
-        p.innerText = `Total Amount: Rs ${finalAmount.toFixed(2)}`;
-        p.classList.add("final");
-      }
-      let existingCart = cart.find((item) => item.User === LoggedUser.uname);
-
-      existingCart.Products.forEach((item) => {
-        let index = data.findIndex((x) => x.pid == item.pid);
-        if (index != -1) {
-          item.ProductPrice = data[index].ProductPrice;
-          item.Productname = data[index].Productname;
-          item.ProductDescription = data[index].ProductDescription;
+        if (Object.keys(LoggedUser).length > 0) {
+          logoutButton.style.display = "block";
+          navLinks.forEach((link) => (link.style.display = "none"));
         } else {
-          alert(item.Productname + " Was Removed");
-          existingCart.Products = data.filter((x) => x.pid !== item.pid);
-          if (Object.keys(cart).length) {
-            window.location.href = "index.html";
-          }
-          localStorage.setItem("Cart", JSON.stringify(cart));
-        }
-      });
-      showCart();
-     
-      function showCart() {
-        const tb = document.getElementById("cart");
-        tb.innerHTML = "";
-        if (!cart.length) {
-          alert("Please login to view cart!");
-          return;
+          logoutButton.style.display = "none";
+          navLinks.forEach((link) => (link.style.display = "block"));
         }
 
-        let x = 1;
+        function updateFinalAmount() {
+          p.innerText = `Total Amount: Rs ${finalAmount.toFixed(2)}`;
+          p.classList.add("final");
+        }
+        let existingCart = cart.find((item) => item.User === LoggedUser.uname);
 
         existingCart.Products.forEach((item) => {
-          const productindex = data.findIndex(
-            (x) => x.Productname === item.Productname
-          );
-          const maxQuantity = data[productindex].ProductQuantity;
-          const add = document.createElement("button");
-          add.innerText = "+";
-          const remove = document.createElement("button");
-          remove.innerText = "-";
-          const rows = tb.insertRow();
-          rows.insertCell(0).innerText = x++;
-          const productImageCell = rows.insertCell(1);
-          const image = item.ProductImg;
-          productImageCell.innerHTML = `<img src="${image}" alt="Product Image" style="width:200px; height: 150px; object-fit: cover;">`;
-          rows.insertCell(2).innerText = item.Productname;
-          rows.insertCell(3).innerText = `Rs.${item.ProductPrice}`;
-          const cell4 = rows.insertCell(4);
-          cell4.appendChild(remove);
-          cell4.appendChild(
-            document.createTextNode(item.ProductQuantity + "/" + maxQuantity)
-          );
-          cell4.appendChild(add);
-          rows.insertCell(5).innerText = item.ProductDescription;
-          let total = item.ProductPrice * item.ProductQuantity;
-          rows.insertCell(6).innerText = `Rs ${total.toFixed(2)}`;
-          const cell = rows.insertCell(7);
-          const dlt = document.createElement("button");
-          dlt.innerText = "Delete";
-          add.addEventListener("click", function () {
-            if (item.ProductQuantity < maxQuantity) {
-              const oldTotal = total;
-              item.ProductQuantity += 1;
-              total = item.ProductPrice * item.ProductQuantity;
-              localStorage.setItem("Cart", JSON.stringify(cart));
-              cell4.innerText = "";
-              cell4.appendChild(remove);
-              cell4.appendChild(
-                document.createTextNode(
-                  item.ProductQuantity + "/" + maxQuantity
-                )
-              );
-              cell4.appendChild(add);
-              rows.cells[6].innerText = `Rs ${total.toFixed(2)}`;
-              finalAmount += total - oldTotal;
-            } else {
-              alert("Maximum quantity reached!");
+          let index = data.findIndex((x) => x.pid == item.pid);
+          if (index != -1) {
+            item.ProductPrice = data[index].ProductPrice;
+            item.Productname = data[index].Productname;
+            item.ProductDescription = data[index].ProductDescription;
+          } else {
+            alert(item.Productname + " Was Removed");
+            existingCart.Products = data.filter((x) => x.pid !== item.pid);
+            if (Object.keys(cart).length) {
+              window.location.href = "index.html";
             }
-            updateFinalAmount();
-            refreshProductList();
-          });
+            localStorage.setItem("Cart", JSON.stringify(cart));
+          }
+        });
+        showCart();
+      
+        function showCart() {
+          const tb = document.getElementById("cart");
+          tb.innerHTML = "";
+          if (!cart.length) {
+            alert("Please login to view cart!");
+            return;
+          }
 
-          remove.addEventListener("click", function () {
-            if (item.ProductQuantity === 1) {
+          let x = 1;
+
+          existingCart.Products.forEach((item) => {
+            const productindex = data.findIndex(
+              (x) => x.Productname === item.Productname
+            );
+            const maxQuantity = data[productindex].ProductQuantity;
+            const add = document.createElement("button");
+            add.innerText = "+";
+            const remove = document.createElement("button");
+            remove.innerText = "-";
+            const rows = tb.insertRow();
+            rows.insertCell(0).innerText = x++;
+            const productImageCell = rows.insertCell(1);
+            const image = item.ProductImg;
+            productImageCell.innerHTML = `<img src="${image}" alt="Product Image" style="width:200px; height: 150px; object-fit: cover;">`;
+            rows.insertCell(2).innerText = item.Productname;
+            rows.insertCell(3).innerText = `Rs.${item.ProductPrice}`;
+            const cell4 = rows.insertCell(4);
+            cell4.appendChild(remove);
+            cell4.appendChild(
+              document.createTextNode(item.ProductQuantity + "/" + maxQuantity)
+            );
+            cell4.appendChild(add);
+            rows.insertCell(5).innerText = item.ProductDescription;
+            let total = item.ProductPrice * item.ProductQuantity;
+            rows.insertCell(6).innerText = `Rs ${total.toFixed(2)}`;
+            const cell = rows.insertCell(7);
+            const dlt = document.createElement("button");
+            dlt.innerText = "Delete";
+            add.addEventListener("click", function () {
+              if (item.ProductQuantity < maxQuantity) {
+                const oldTotal = total;
+                item.ProductQuantity += 1;
+                total = item.ProductPrice * item.ProductQuantity;
+                localStorage.setItem("Cart", JSON.stringify(cart));
+                cell4.innerText = "";
+                cell4.appendChild(remove);
+                cell4.appendChild(
+                  document.createTextNode(
+                    item.ProductQuantity + "/" + maxQuantity
+                  )
+                );
+                cell4.appendChild(add);
+                rows.cells[6].innerText = `Rs ${total.toFixed(2)}`;
+                finalAmount += total - oldTotal;
+              } else {
+                alert("Maximum quantity reached!");
+              }
+              updateFinalAmount();
+              refreshProductList();
+            });
+
+            remove.addEventListener("click", function () {
+              if (item.ProductQuantity === 1) {
+                existingCart.Products = existingCart.Products.filter((x) => x.Productname !== item.Productname);
+                localStorage.setItem("Cart", JSON.stringify(cart));
+                finalAmount = 0;
+                p.innerText = "0";
+                showCart();
+              } else {
+                const oldTotal = total;
+                item.ProductQuantity -= 1;
+                total = item.ProductPrice * item.ProductQuantity;
+                localStorage.setItem("Cart", JSON.stringify(cart));
+                cell4.innerText = "";
+                cell4.appendChild(remove);
+                cell4.appendChild(
+                  document.createTextNode(
+                    item.ProductQuantity + "/" + maxQuantity
+                  )
+                );
+                cell4.appendChild(add);
+                rows.cells[6].innerText = `Rs ${total.toFixed(2)}`;
+                finalAmount -= oldTotal - total;
+              }
+              updateFinalAmount();
+
+              if (Object.keys(existingCart.Products).length === 0) {
+                window.location.href = "index.html";
+              }
+            });
+            dlt.addEventListener("click", function () {
               existingCart.Products = existingCart.Products.filter((x) => x.Productname !== item.Productname);
               localStorage.setItem("Cart", JSON.stringify(cart));
-              finalAmount = 0;
-              p.innerText = "0";
               showCart();
-            } else {
-              const oldTotal = total;
-              item.ProductQuantity -= 1;
-              total = item.ProductPrice * item.ProductQuantity;
-              localStorage.setItem("Cart", JSON.stringify(cart));
-              cell4.innerText = "";
-              cell4.appendChild(remove);
-              cell4.appendChild(
-                document.createTextNode(
-                  item.ProductQuantity + "/" + maxQuantity
-                )
-              );
-              cell4.appendChild(add);
-              rows.cells[6].innerText = `Rs ${total.toFixed(2)}`;
-              finalAmount -= oldTotal - total;
-            }
-            updateFinalAmount();
-
-            if (Object.keys(existingCart.Products).length === 0) {
-              window.location.href = "index.html";
-            }
+              if (Object.keys(existingCart.Products).length === 0) {
+                window.location.href = "index.html";
+              }
+            });
+            finalAmount += total;
+            cell.appendChild(dlt);
           });
-          dlt.addEventListener("click", function () {
-            existingCart.Products = existingCart.Products.filter((x) => x.Productname !== item.Productname);
-            localStorage.setItem("Cart", JSON.stringify(cart));
-            showCart();
-            if (Object.keys(existingCart.Products).length === 0) {
-              window.location.href = "index.html";
-            }
-          });
-          finalAmount += total;
-          cell.appendChild(dlt);
-        });
 
-        updateFinalAmount();
-      }
+          updateFinalAmount();
+        }
+      });
     </script>
   </body>
 </html>
