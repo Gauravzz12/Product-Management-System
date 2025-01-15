@@ -3,6 +3,103 @@ let data = JSON.parse(localStorage.getItem("Products")) || [];
 let LoggedUser = JSON.parse(sessionStorage.getItem("currentUser")) || [];
 let cart = JSON.parse(localStorage.getItem("Cart")) || [];
 
+// Initialize 10 default items in the data array
+if (data.length === 0) {
+  data = [
+    {
+      pid: generateProductId(),
+      serialNumber: 1,
+      Productname: "Apple",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 100,
+      ProductQuantity: 10,
+      ProductDescription: "Fresh red apples",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 2,
+      Productname: "Banana",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 50,
+      ProductQuantity: 20,
+      ProductDescription: "Ripe yellow bananas",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 3,
+      Productname: "Orange",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 80,
+      ProductQuantity: 30,
+      ProductDescription: "Juicy oranges",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 4,
+      Productname: "Grapes",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 120,
+      ProductQuantity: 40,
+      ProductDescription: "Fresh green grapes",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 5,
+      Productname: "Mango",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 150,
+      ProductQuantity: 50,
+      ProductDescription: "Sweet mangoes",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 6,
+      Productname: "Watermelon",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 200,
+      ProductQuantity: 60,
+      ProductDescription: "Refreshing watermelon",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 7,
+      Productname: "Pineapple",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 180,
+      ProductQuantity: 70,
+      ProductDescription: "Delicious pineapple",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 8,
+      Productname: "Strawberry",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 250,
+      ProductQuantity: 80,
+      ProductDescription: "Fresh strawberries",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 9,
+      Productname: "Blueberry",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 300,
+      ProductQuantity: 90,
+      ProductDescription: "Fresh blueberries",
+    },
+    {
+      pid: generateProductId(),
+      serialNumber: 10,
+      Productname: "Kiwi",
+      ProductImage: "https://images.unsplash.com/photo-1581579186374-2a3b1b1a1b1a",
+      ProductPrice: 220,
+      ProductQuantity: 100,
+      ProductDescription: "Fresh kiwi",
+    },
+  ];
+  localStorage.setItem("Products", JSON.stringify(data));
+}
+
 //ADMIN
 let serialNumber;
 
